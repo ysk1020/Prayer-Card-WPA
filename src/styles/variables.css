@@ -3,20 +3,25 @@
     --bg: #faf6f0;
     --surface: #fffdf9;
     --border: #e8e1d6;
-    --text: #3a353a0;
+    --text: #3a3530;
     --text-muted: #8a8175;
+    --placeholder: #b7ad9e;
+    --ghost-hover: #f3eee5;
     --accent: #b97b56;
     --accent-text: #fffdf9;
+    --accent-soft: color-mix(in srgb, var(--accent) 20%, transparent);
+    --accent-bg: color-mix(in srgb, var(--accent) 12%, transparent);
 
     /* fonts */
-    --font-ui: system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-ui: -apple-system, "Segoe UI", system-ui, sans-serif;
     --font-verse: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
 
     /* shape */
     --radius: 20px;
-    --shadow: 0 8px 24px rgba(0,0,0,0.06)
+    --radius-sm: 10px;
+    --shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 
     /* spacing */
     --pad-card: 28px;
-    --max-width:340px;
+    --max-width: 340px;
 }

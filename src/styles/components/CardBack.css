@@ -1,0 +1,85 @@
+.back-pill {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 6px;
+  padding: 4px 10px;
+  margin-bottom: 18px;
+  border-radius: 999px;
+  background: var(--accent-bg);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.back-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.back-names,
+.back-ref,
+.back-note {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.back-names {
+  margin-bottom: 14px;
+}
+
+.back-verse {
+  margin-bottom: 14px;
+  font-family: var(--font-verse);
+  font-size: 19px;
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+.back-ref {
+  margin-bottom: 18px;
+}
+
+.back-note {
+  margin-bottom: 24px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  font-style: italic;
+}
+
+.back-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.back-button {
+  flex: 1;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.back-button:hover {
+  opacity: 0.92;
+}
+
+.back-button--ghost {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+}
+
+.back-button--ghost:hover {
+  background: var(--ghost-hover);
+}
+
+.back-button--filled {
+  border: none;
+  background: var(--accent);
+  color: var(--accent-text);
+}
