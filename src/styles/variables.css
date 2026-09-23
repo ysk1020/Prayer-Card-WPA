@@ -1,0 +1,22 @@
+:root {
+    /* colors */
+    --bg: #faf6f0;
+    --surface: #fffdf9;
+    --border: #e8e1d6;
+    --text: #3a353a0;
+    --text-muted: #8a8175;
+    --accent: #b97b56;
+    --accent-text: #fffdf9;
+
+    /* fonts */
+    --font-ui: system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-verse: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+
+    /* shape */
+    --radius: 20px;
+    --shadow: 0 8px 24px rgba(0,0,0,0.06)
+
+    /* spacing */
+    --pad-card: 28px;
+    --max-width:340px;
+}
