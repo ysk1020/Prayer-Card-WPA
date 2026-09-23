@@ -1,68 +1,68 @@
-.front-header {
+.header {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.front-icon {
+.icon {
   width: 18px;
   height: 18px;
   flex-shrink: 0;
   color: var(--accent);
 }
 
-.front-title {
+.title {
   font-size: 16px;
   font-weight: 500;
   color: var(--text);
 }
 
-.front-subtitle {
+.subtitle {
   margin-bottom: 12px;
   font-size: 13px;
   color: var(--text-muted);
 }
 
-.front-label {
+.label {
   margin-bottom: 4px;
   font-size: 12px;
   color: var(--text-muted);
 }
 
-.front-input,
-.front-textarea {
+.input,
+.textarea {
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   background: var(--surface);
   color: var(--text);
 }
 
-.front-input {
+.input {
   height: 40px;
   padding: 0 12px;
   margin-bottom: 12px;
   font-size: 15px;
 }
 
-.front-input:last-of-type {
+.input:last-of-type {
   margin-bottom: 16px;
 }
 
-.front-textarea {
+.textarea {
   padding: 10px 12px;
   margin-bottom: 20px;
   font-size: 14px;
   resize: none;
 }
 
-.front-input:focus,
-.front-textarea:focus {
+.input:focus,
+.textarea:focus {
   outline: none;
   border-color: var(--accent);
   box-shadow: 0 0 0 3px var(--accent-soft);
 }
 
-.front-button {
+.button {
   height: 44px;
   border: none;
   border-radius: var(--radius-sm);
@@ -72,6 +72,6 @@
   font-weight: 500;
 }
 
-.front-button:hover {
+.button:hover {
   opacity: 0.92;
 }

@@ -11,6 +11,6 @@
   box-shadow: var(--shadow);
 }
 
-.card--back {
+.back {
   min-height: 420px;
 }
