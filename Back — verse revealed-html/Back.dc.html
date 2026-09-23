@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Prayer card — back</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0;font-family:-apple-system,"Segoe UI",system-ui,sans-serif;background:#FAF6F0}
+button{cursor:pointer}
+button:hover{opacity:0.92}
+.ghost:hover{background:#F3EEE5}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #FAF6F0; display: flex; align-items: center; justify-content: center; padding: 32px 24px;">
+  <div style="width: 100%; max-width: 340px; background: #FFFDF9; border: 1px solid #E8E1D6; border-radius: 20px; box-shadow: 0 8px 24px rgba(0,0,0,0.06); padding: 28px; box-sizing: border-box; display: flex; flex-direction: column; gap: 4px; min-height: 420px;">
+
+    <div style="display: inline-flex; align-items: center; gap: 6px; align-self: flex-start; background: {{accentBg}}; padding: 4px 10px; border-radius: 999px; margin-bottom: 18px;">
+      <span style="width: 6px; height: 6px; border-radius: 50%; background: {{accent}};"></span>
+      <span style="font-size: 12px; font-weight: 500; color: {{accentText}};">{{theme}}</span>
+    </div>
+
+    <p style="margin: 0 0 14px; font-size: 13px; color: #8A8175;">{{namesLine}}</p>
+
+    <blockquote style="margin: 0 0 14px; font-family: Georgia, 'Iowan Old Style', 'Palatino Linotype', serif; font-size: 19px; line-height: 1.55; color: #3A3530; font-style: italic;">
+      {{verseText}}
+    </blockquote>
+    <p style="margin: 0 0 18px; font-size: 13px; color: #8A8175;">{{verseRef}}</p>
+
+    <p style="margin: 0 0 24px; font-size: 13px; color: #8A8175; font-style: italic; border-top: 1px solid #E8E1D6; padding-top: 14px;">{{note}}</p>
+
+    <div style="display: flex; gap: 8px; margin-top: auto;">
+      <button class="ghost" style="flex: 1; height: 44px; border-radius: 10px; border: 1px solid #E8E1D6; background: transparent; color: #3A3530; font-size: 14px; font-weight: 500;">New verse</button>
+      <button style="flex: 1; height: 44px; border-radius: 10px; border: none; background: {{accent}}; color: #FFFDF9; font-size: 14px; font-weight: 500;">Back</button>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","default":"Comfort","options":["Comfort","Strength","Guidance","Peace","Gratitude"]},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const palette = {
+      Comfort:  '#B97B56',
+      Strength: '#7C8B6F',
+      Guidance: '#7E96A8',
+      Peace:    '#9B8AA6',
+      Gratitude:'#C79A4B'
+    };
+    const theme = this.props.theme ?? 'Comfort';
+    const accent = palette[theme] ?? palette.Comfort;
+    return {
+      theme,
+      accent,
+      accentBg: accent + '1F',
+      accentText: accent,
+      namesLine: 'For Mom, Dad',
+      verseText: '“The LORD is nigh unto them that are of a broken heart; and saveth such as be of a contrite spirit.”',
+      verseRef: 'Psalm 34:18',
+      note: 'Keep them steady this week.'
+    };
+  }
+}
+</script>
+</body>
+</html>
