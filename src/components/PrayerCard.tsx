@@ -3,11 +3,12 @@ import CardFront from "./CardFront";
 import CardBack from "./CardBack";
 import { useState } from "react";
 import { fetchRandomVerse, type Passage } from "../api/bible";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 function PrayerCard() {
   const [isFlipped, setIsFlipped] = useState(false);
-  const [names, setNames] = useState(["", "", ""]);
-  const [note, setNote] = useState("");
+  const [names, setNames] = useLocalStorage("prayer-card:names", ["", "", ""]);
+  const [note, setNote] = useLocalStorage("prayer-card:note", "");
   const [verse, setVerse] = useState<Passage | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -20,7 +21,9 @@ function PrayerCard() {
     setError("");
     try {
       setVerse(await fetchRandomVerse());
-    } catch {
+    } catch (err) {
+      // Network is down, API key is invalid, or the API is unavailable
+      console.warn("Couldn't load a verse from the Bible API", err);
       setError("Couldn't load a verse. Try again.");
     } finally {
       setLoading(false);
