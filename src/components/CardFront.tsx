@@ -1,12 +1,27 @@
 import styles from "./CardFront.module.css";
+import type { SubmitEvent } from "react";
 
 interface CardFrontProps {
+  names: string[];
+  note: string;
+  onNameChange: (index: number, value: string) => void;
+  onNoteChange: (value: string) => void;
   onReveal: () => void;
 }
 
-function CardFront({ onReveal }: CardFrontProps) {
+function CardFront({
+  names,
+  note,
+  onNameChange,
+  onNoteChange,
+  onReveal,
+}: CardFrontProps) {
+  function handleSubmit(e: SubmitEvent<HTMLFormElement>) {
+    e.preventDefault();
+    onReveal();
+  }
   return (
-    <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <div className={styles.header}>
         <svg
           className={styles.icon}
@@ -32,6 +47,9 @@ function CardFront({ onReveal }: CardFrontProps) {
         id="name1"
         type="text"
         placeholder="Mom"
+        required
+        value={names[0]}
+        onChange={(e) => onNameChange(0, e.target.value)}
       />
 
       <label className={styles.label} htmlFor="name2">
@@ -42,6 +60,8 @@ function CardFront({ onReveal }: CardFrontProps) {
         id="name2"
         type="text"
         placeholder="Dad"
+        value={names[1]}
+        onChange={(e) => onNameChange(1, e.target.value)}
       />
 
       <label className={styles.label} htmlFor="name3">
@@ -52,6 +72,8 @@ function CardFront({ onReveal }: CardFrontProps) {
         id="name3"
         type="text"
         placeholder="A friend"
+        value={names[2]}
+        onChange={(e) => onNameChange(2, e.target.value)}
       />
 
       <label className={styles.label} htmlFor="note">
@@ -62,9 +84,11 @@ function CardFront({ onReveal }: CardFrontProps) {
         id="note"
         rows={2}
         placeholder="What's on your heart for them"
+        value={note}
+        onChange={(e) => onNoteChange(e.target.value)}
       />
 
-      <button className={styles.button} type="submit" onClick={onReveal}>
+      <button className={styles.button} type="submit">
         Reveal verse
       </button>
     </form>

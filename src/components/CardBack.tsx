@@ -1,27 +1,57 @@
 import styles from "./CardBack.module.css";
-
+import type { Passage } from "../api/bible";
 interface CardBackProps {
+  names: string[];
+  note: string;
+  verse: Passage | null;
+  loading: boolean;
+  error: string;
+  onNewVerse: () => void;
   onBack: () => void;
 }
-function CardBack({ onBack }: CardBackProps) {
+function CardBack({
+  names,
+  note,
+  verse,
+  loading,
+  error,
+  onNewVerse,
+  onBack,
+}: CardBackProps) {
+  const filledNames = names.filter(Boolean).join(", ");
+  const book = verse?.ref.replace(/\s[\d:-]+$/, "");
+
   return (
     <div className={styles.back}>
-      <div className={styles.pill}>
-        <span className={styles.dot} />
-        <span>Comfort</span>
-      </div>
-      <p className={styles.name}>{/* some data */}</p>
+      {book && !loading && (
+        <div className={styles.pill}>
+          <span className={styles.dot} />
+          <span>{book}</span>
+        </div>
+      )}
 
-      <blockquote className={styles.verse}>
-        {/* dummy data for now */}
-        “The LORD is nigh unto them that are of a broken heart; and saveth such
-        as be of a contrite spirit.”
-      </blockquote>
-      <p className={styles.ref}>Psalm 34:18</p>
+      <p className={styles.names}>For {filledNames}</p>
+      {loading ? (
+        <p className={styles.ref}> Finding a verse...</p>
+      ) : error ? (
+        <p className={styles.ref}>{error}</p>
+      ) : (
+        verse && (
+          <>
+            <blockquote className={styles.verse}>"{verse.text}"</blockquote>
+            <p className={styles.ref}>{verse.ref}</p>
+          </>
+        )
+      )}
 
-      <p className={styles.note}>Keep them steady this week.</p>
+      {note && <p className={styles.note}>{note}</p>}
       <div className={styles.actions}>
-        <button className={`${styles.button} ${styles.ghost}`} type="button">
+        <button
+          className={`${styles.button} ${styles.ghost}`}
+          type="button"
+          onClick={onNewVerse}
+          disabled={loading}
+        >
           New Verse
         </button>
         <button

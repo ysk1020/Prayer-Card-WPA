@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Environment variables (API keys) — keep only the template
+.env
+.env.*
+!.env.example
